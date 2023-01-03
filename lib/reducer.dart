@@ -5,10 +5,14 @@ import 'package:flut_pomodoro/models/task.dart';
 AppState updateTaskReducer(AppState state, dynamic action) {
   if (action is UpdateTaskAction) {
     return AppState(
-        tasks: state.tasks
+        state.tasks
             .map((e) =>
                 e.name == action.updatedTask.name ? action.updatedTask : e)
-            .toList());
+            .toList(),
+        state.pomodoro);
+  }
+  if (action is UpdatePomodoroAction) {
+    return AppState(state.tasks, action.updatedPomodoro);
   }
   return state;
 }

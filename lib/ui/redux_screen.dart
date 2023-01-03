@@ -21,12 +21,8 @@ class ReduxScreen extends StatelessWidget {
         StoreConnector<AppState, Pomodoro>(
           converter: ((store) => store.state.pomodoro),
           builder: (context, Pomodoro pomodoro) => PomodoroWidget(
-              pomodoro: pomodoro,
-              onPressed: () {
-                pomodoro.ellapsedTime++;
-                StoreProvider.of<AppState>(context)
-                    .dispatch(UpdatePomodoroAction(pomodoro));
-              }),
+            pomodoro: pomodoro,
+          ),
         ),
         StoreConnector<AppState, List<Task>>(
           converter: ((store) => store.state.tasks),

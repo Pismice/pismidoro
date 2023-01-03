@@ -1,3 +1,4 @@
+import 'package:flut_pomodoro/models/pomodoro.dart';
 import 'package:flut_pomodoro/reducer.dart';
 import 'package:flut_pomodoro/ui/pomodoro_widget.dart';
 import 'package:flut_pomodoro/ui/redux_screen.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
   final Store<AppState> _store = Store<AppState>(updateTaskReducer,
       initialState:
-          AppState(tasks: [Task("name"), Task("Testo 1"), Task("bouliste")]));
+          AppState([Task("name"), Task("Testo 1"), Task("bouliste")], Pomodoro()));
   // TODO : remove the starting tasks
 
   @override
